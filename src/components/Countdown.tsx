@@ -12,74 +12,56 @@ interface TimeLeft {
 }
 
 const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
-    const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
+    const [timeLeft, setTimeLeft] = useState<TimeLeft>({});
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true);
+        const timer = setTimeout(() => {
+            setTimeLeft(calculateTimeLeft());
+        }, 1000);
+        return () => clearTimeout(timer);
+    }, [timeLeft]);
 
     function calculateTimeLeft(): TimeLeft {
         const difference = +targetDate - +new Date();
-        let timeLeft: TimeLeft = {};
-
         if (difference > 0) {
-            timeLeft = {
+            return {
                 days: Math.floor(difference / (1000 * 60 * 60 * 24)),
                 hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
                 minutes: Math.floor((difference / 1000 / 60) % 60),
                 seconds: Math.floor((difference / 1000) % 60),
             };
         }
-
-        return timeLeft;
+        return {};
     }
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setTimeLeft(calculateTimeLeft());
-        }, 1000);
-
-        return () => clearTimeout(timer);
-    });
-
-    const timerComponents = Object.keys(timeLeft).map((interval) => {
-        if (!timeLeft[interval as keyof TimeLeft]) {
-            return null;
-        }
-
-        return (
-            <span className="countdown-item" key={interval}>
-                <span className="countdown-value">{timeLeft[interval as keyof TimeLeft]}</span>
-                <span className="countdown-interval">{interval}</span>
-            </span>
-        );
-    });
+    const timerComponents = Object.keys(timeLeft).map((interval) => (
+        <span key={interval} className="countdown-item">
+            <span className="countdown-value bounce">{timeLeft[interval as keyof TimeLeft]}</span>
+            <span className="countdown-interval">{interval}</span>
+        </span>
+    ));
 
     return (
         <div className="countdown">
-            {timerComponents.length ? timerComponents : <span>È il grande giorno!</span>}
+            {isClient && (timerComponents.length ? timerComponents : <span>È il grande giorno!</span>)}
             <style jsx>{`
-                .countdown {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    gap: 1rem;
-                    font-family: 'Cormorant Garamond', serif;
-                    margin-top: 2rem;
-                }
                 .countdown-item {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    background-color: rgba(255, 255, 255, 0.8);
-                    padding: 0.5rem 1rem;
-                    border-radius: 8px;
+                    margin: 0 5px;
                 }
                 .countdown-value {
                     font-size: 2rem;
                     font-weight: bold;
-                    color: #4a6741;
+                    animation: bounce 1s ease infinite;
                 }
                 .countdown-interval {
-                    font-size: 0.8rem;
+                    font-size: 1rem;
                     text-transform: uppercase;
-                    color: #9370db;
+                }
+                @keyframes bounce {
+                    0%, 100% { transform: translateY(0); }
+                    50% { transform: translateY(-10px); }
                 }
             `}</style>
         </div>

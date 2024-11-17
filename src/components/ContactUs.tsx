@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Container, Grid, TextField, Button, Typography } from '@mui/material';
+import Box from '@mui/material/Box';
 
 export default function ContactUs() {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -9,57 +10,73 @@ export default function ContactUs() {
     };
 
     return (
-        <section id="contattaci" className="py-5 contact-us">
+        <Box component="section" id="contattaci" sx={{ py: 5 }} className="contact-us">
             <Container>
-                <h2 className="text-center mb-4 elven-script">Contattaci</h2>
-                <Row>
-                    <Col md={6}>
-                        <Form onSubmit={handleSubmit}>
-                            <Form.Group className="mb-3" controlId="name">
-                                <Form.Label className="elven-text">Nome</Form.Label>
-                                <Form.Control type="text" placeholder="Inserisci il tuo nome" required />
-                            </Form.Group>
-                            <Form.Group className="mb-3" controlId="email">
-                                <Form.Label className="elven-text">Email</Form.Label>
-                                <Form.Control type="email" placeholder="Inserisci la tua email" required />
-                            </Form.Group>
-                            <Form.Group className="mb-3" controlId="message">
-                                <Form.Label className="elven-text">Messaggio</Form.Label>
-                                <Form.Control as="textarea" rows={3} placeholder="Scrivi il tuo messaggio" required />
-                            </Form.Group>
-                            <Button variant="primary" type="submit" className="elven-button">
+                <Typography variant="h2" align="center" className="elven-script" gutterBottom>
+                    Contattaci
+                </Typography>
+                <Grid container spacing={4}>
+                    <Grid item xs={12} md={6}>
+                        <Box component="form" onSubmit={handleSubmit}>
+                            <TextField
+                                id="name"
+                                label="Nome"
+                                variant="outlined"
+                                fullWidth
+                                required
+                                margin="normal"
+                                placeholder="Inserisci il tuo nome"
+                                InputLabelProps={{ className: 'elven-text' }}
+                                inputProps={{ className: 'elven-text' }}
+                            />
+                            <TextField
+                                id="email"
+                                label="Email"
+                                type="email"
+                                variant="outlined"
+                                fullWidth
+                                required
+                                margin="normal"
+                                placeholder="Inserisci la tua email"
+                                InputLabelProps={{ className: 'elven-text' }}
+                                inputProps={{ className: 'elven-text' }}
+                            />
+                            <TextField
+                                id="message"
+                                label="Messaggio"
+                                variant="outlined"
+                                fullWidth
+                                required
+                                margin="normal"
+                                multiline
+                                rows={3}
+                                placeholder="Scrivi il tuo messaggio"
+                                InputLabelProps={{ className: 'elven-text' }}
+                                inputProps={{ className: 'elven-text' }}
+                            />
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                type="submit"
+                                className="elven-button"
+                                sx={{ mt: 2 }}
+                            >
                                 Invia Messaggio
                             </Button>
-                        </Form>
-                    </Col>
-                    <Col md={6}>
-                        <h3 className="elven-script">Informazioni di Contatto</h3>
-                        <p className="elven-text contact-info">
-                            Telefono: +39 123 456 7890<br />
+                        </Box>
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                        <Typography variant="h3" className="elven-script">
+                            Informazioni di Contatto
+                        </Typography>
+                        <Typography className="elven-text contact-info" sx={{ mt: 2 }}>
+                            Telefono: +39 123 456 7890
+                            <br />
                             Email: francesco.beatrice@example.com
-                        </p>
-                    </Col>
-                </Row>
+                        </Typography>
+                    </Grid>
+                </Grid>
             </Container>
-            <style jsx>{`
-                .contact-us {
-                    background-color: #f0fff0;
-                }
-                .contact-info {
-                    color: #4a6741;
-                }
-                .elven-button {
-                    background-color: #9370db;
-                    border: none;
-                    color: white;
-                    padding: 10px 20px;
-                    font-family: 'Tangerine', cursive;
-                    font-size: 1.5rem;
-                }
-                .elven-button:hover {
-                    background-color: #8a2be2;
-                }
-            `}</style>
-        </section>
+        </Box>
     );
 }

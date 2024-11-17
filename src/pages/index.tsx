@@ -1,107 +1,150 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import {
+    AppBar,
+    Toolbar,
+    Container,
+    Typography,
+    IconButton,
+    Button,
+    Menu,
+    MenuItem,
+    Box,
+} from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 import HomePage from '../components/HomePage';
 import OurStory from '../components/OurStory';
 import Ceremony from '../components/Ceremony';
 import ContactUs from '../components/ContactUs';
+import AOS from 'aos';
+import 'leaflet/dist/leaflet.css';
+import '../styles/global.css';
 
 export default function Home() {
+    const [anchorEl, setAnchorEl] = useState(null);
+
+    const handleMenuOpen = (event: any) => {
+        setAnchorEl(event.currentTarget);
+    }
+
+    const handleMenuClose = () => {
+        setAnchorEl(null);
+    }
+
+    useEffect(() => {
+        AOS.init({ duration: 1200 });
+    }, []);
+
     return (
         <div className="wedding-page">
             <Head>
                 <title>Francesco & Beatrice - Matrimonio</title>
-                <meta name="description" content="Sito web del matrimonio di Francesco e Beatrice"/>
-                <link rel="icon" href="/favicon.ico"/>
-                <link
-                    rel="stylesheet"
-                    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-                    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
-                    crossOrigin="anonymous"
+                <meta
+                    name="description"
+                    content="Sito web del matrimonio di Francesco e Beatrice"
                 />
-                <link
-                    rel="stylesheet"
-                    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-                    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-                    crossOrigin=""
-                />
+                <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <Navbar bg="transparent" expand="lg" fixed="top">
+            <AppBar position="fixed" color="transparent" elevation={0}>
                 <Container>
-                    <Navbar.Brand href="#home" className="elven-script">Francesco & Beatrice</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav"/>
-                    <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="ms-auto">
-                            <Nav.Link href="#home" className="elven-text">Home</Nav.Link>
-                            <Nav.Link href="#storia" className="elven-text">La Nostra Storia</Nav.Link>
-                            <Nav.Link href="#cerimonia" className="elven-text">Cerimonia</Nav.Link>
-                            <Nav.Link href="#contattaci" className="elven-text">Contattaci</Nav.Link>
-                        </Nav>
-                    </Navbar.Collapse>
+                    <Toolbar disableGutters>
+                        <Typography
+                            variant="h6"
+                            component="a"
+                            href="#home"
+                            className="elven-script"
+                            sx={{
+                                flexGrow: 1,
+                                textDecoration: 'none',
+                                color: 'inherit',
+                            }}
+                        >
+                            Francesco & Beatrice
+                        </Typography>
+                        {/* Menu Mobile */}
+                        <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+                            <IconButton
+                                size="large"
+                                edge="end"
+                                color="inherit"
+                                aria-label="menu"
+                                aria-controls="menu-appbar"
+                                aria-haspopup="true"
+                                onClick={handleMenuOpen}
+                            >
+                                <MenuIcon />
+                            </IconButton>
+                            <Menu
+                                id="menu-appbar"
+                                anchorEl={anchorEl}
+                                anchorOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'right',
+                                }}
+                                keepMounted
+                                transformOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'right',
+                                }}
+                                open={Boolean(anchorEl)}
+                                onClose={handleMenuClose}
+                            >
+                                <MenuItem onClick={handleMenuClose}>
+                                    <Button href="#home" className="elven-text">
+                                        Home
+                                    </Button>
+                                </MenuItem>
+                                <MenuItem onClick={handleMenuClose}>
+                                    <Button href="#storia" className="elven-text">
+                                        La Nostra Storia
+                                    </Button>
+                                </MenuItem>
+                                <MenuItem onClick={handleMenuClose}>
+                                    <Button href="#cerimonia" className="elven-text">
+                                        Cerimonia
+                                    </Button>
+                                </MenuItem>
+                                <MenuItem onClick={handleMenuClose}>
+                                    <Button href="#contattaci" className="elven-text">
+                                        Contattaci
+                                    </Button>
+                                </MenuItem>
+                            </Menu>
+                        </Box>
+                        {/* Menu Desktop */}
+                        <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                            <Button href="#home" className="elven-text" sx={{ color: 'black' }}>
+                                Home
+                            </Button>
+                            <Button href="#storia" className="elven-text" sx={{ color: 'black' }}>
+                                La Nostra Storia
+                            </Button>
+                            <Button href="#cerimonia" className="elven-text" sx={{ color: 'black' }}>
+                                Cerimonia
+                            </Button>
+                            <Button href="#contattaci" className="elven-text" sx={{ color: 'black' }}>
+                                Contattaci
+                            </Button>
+                        </Box>
+                    </Toolbar>
                 </Container>
-            </Navbar>
+            </AppBar>
 
             <main>
-                <HomePage/>
-                <OurStory/>
-                <Ceremony/>
-                <ContactUs/>
+                <HomePage />
+                <OurStory />
+                <Ceremony />
+                <ContactUs />
             </main>
 
-            <footer className="py-4 elven-footer">
+            <Box component="footer" sx={{ py: 4 }} className="elven-footer">
                 <Container>
-                    <p className="text-center mb-0 elven-text">
+                    <Typography align="center" className="elven-text" sx={{ mb: 0 }}>
                         &copy; 2025 Francesco & Beatrice. Tutti i diritti riservati.
-                    </p>
+                    </Typography>
                 </Container>
-            </footer>
-
-            <style jsx global>{`
-                @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
-                @import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap');
-
-                body {
-                    font-family: 'Cormorant Garamond', serif;
-                    background-color: #f8f7f2;
-                    color: #3a3a3a;
-                }
-
-                .elven-script {
-                    font-family: 'Tangerine', cursive;
-                    font-size: 2.5em;
-                    color: #4a6741;
-                }
-
-                .elven-text {
-                    font-family: 'Cormorant Garamond', serif;
-                    font-style: italic;
-                    font-size: 1.2em;
-                    color: #3a3a3a;
-                }
-
-                .elven-bg-light {
-                    background-color: #e6e6fa;
-                }
-
-                .elven-button {
-                    background-color: #9370db;
-                    border: none;
-                    font-family: 'Tangerine', cursive;
-                    font-size: 1.5em;
-                    padding: 10px 30px;
-                    color: white;
-                }
-
-                .elven-button:hover {
-                    background-color: #8a2be2;
-                }
-
-                .elven-footer {
-                    background-color: #4a6741;
-                    color: #f8f7f2;
-                }
-            `}</style>
+            </Box>
         </div>
     );
 }
