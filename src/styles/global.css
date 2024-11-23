@@ -91,14 +91,7 @@ main { flex: 1; }
     text-shadow: 0 0 5px rgba(230,230,250,0.5);
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap');
 
-body {
-    font-family: 'Cormorant Garamond', serif;
-    background-color: #f8f7f2;
-    color: #3a3a3a;
-}
 
 .elven-script {
     font-family: 'Tangerine', cursive;
@@ -143,7 +136,7 @@ body {
     position: absolute;
     left: 50%;
     width: 2px;
-    height: 70%;
+    height: 50%;
     background: #b0e0e6;
 }
 .timeline-event {
@@ -216,4 +209,24 @@ body {
 .countdown-interval {
     font-size: 1rem;
     text-transform: uppercase;
+}
+
+.navbar-link {
+    color: #f8f7f2;
+    text-decoration: none;
+    font-size: 1rem;
+    font-family: 'Cormorant Garamond', serif;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+.navbar-link:hover {
+    color: #9370db;
+    text-shadow: 1px 1px 5px rgba(147, 112, 219, 0.7);
+}
+
+.countdown-item {
+    transition: transform 0.2s ease-in-out;
+}
+.countdown-item:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.3);
 }

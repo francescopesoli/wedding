@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Typography, Box, Grid } from '@mui/material';
 
 interface CountdownProps {
     targetDate: Date;
@@ -36,35 +37,61 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
         return {};
     }
 
-    const timerComponents = Object.keys(timeLeft).map((interval) => (
-        <span key={interval} className="countdown-item">
-            <span className="countdown-value bounce">{timeLeft[interval as keyof TimeLeft]}</span>
-            <span className="countdown-interval">{interval}</span>
-        </span>
-    ));
+    if (!isClient) {
+        return null;
+    }
+
+    if (Object.keys(timeLeft).length === 0) {
+        return (
+            <Typography variant="h5" sx={{ color: '#fff' }}>
+                È il grande giorno!
+            </Typography>
+        );
+    }
 
     return (
-        <div className="countdown">
-            {isClient && (timerComponents.length ? timerComponents : <span>È il grande giorno!</span>)}
-            <style jsx>{`
-                .countdown-item {
-                    margin: 0 5px;
-                }
-                .countdown-value {
-                    font-size: 2rem;
-                    font-weight: bold;
-                    animation: bounce 1s ease infinite;
-                }
-                .countdown-interval {
-                    font-size: 1rem;
-                    text-transform: uppercase;
-                }
-                @keyframes bounce {
-                    0%, 100% { transform: translateY(0); }
-                    50% { transform: translateY(-10px); }
-                }
-            `}</style>
-        </div>
+        <Box sx={{ mt: 4 }}>
+            <Grid container spacing={2} justifyContent="center">
+                {Object.entries(timeLeft).map(([interval, value]) => (
+                    <Grid item key={interval}>
+                        <Box
+                            sx={{
+                                backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                                padding: 2,
+                                borderRadius: 2,
+                                minWidth: 60,
+                                boxShadow: '0 4px 8px rgba(0,0,0,0.3)',
+                            }}
+                        >
+                            <Typography
+                                variant="h4"
+                                className="elven-script"
+                                sx={{
+                                    color: '#2c2a2a',
+                                    fontWeight: 'bold',
+                                    textAlign: 'center',
+                                    fontSize: '2rem',
+                                }}
+                            >
+                                {value}
+                            </Typography>
+                            <Typography
+                                variant="subtitle1"
+                                className="elven-text"
+                                sx={{
+                                    color: '#9370db',
+                                    textAlign: 'center',
+                                    textTransform: 'uppercase',
+                                    fontSize: '1rem',
+                                }}
+                            >
+                                {interval}
+                            </Typography>
+                        </Box>
+                    </Grid>
+                ))}
+            </Grid>
+        </Box>
     );
 };
 

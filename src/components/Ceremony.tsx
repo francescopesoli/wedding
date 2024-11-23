@@ -47,7 +47,7 @@ export default function Ceremony() {
                         <Typography className="elven-text" sx={{ marginTop: 3 }}>
                             Sabato, 7 Giugno 2025
                             <br />
-                            Ore 15:00
+                            Ore 10:00
                             <br />
                             Chiesa Santa Maria della Stella
                             <br />
