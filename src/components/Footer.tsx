@@ -1,5 +1,5 @@
 // components/Footer.tsx
-import { Container } from 'react-bootstrap';
+import { Container } from '@mui/material';
 
 export default function Footer() {
     return (

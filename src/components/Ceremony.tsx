@@ -2,22 +2,29 @@ import React from 'react';
 import { Container, Grid, Typography } from '@mui/material';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
-import villaGrande from '../assets/villa_grande.jpg';
-import chiesaStella from '../assets/Chiesa-della-Stella.png';
 
 const LeafletMap = dynamic(() => import('./LeafletMap'), { ssr: false });
 
+interface Location {
+    name: string;
+    lat: number;
+    lng: number;
+    tipo: 'Chiesa' | 'Villa';
+}
+
 export default function Ceremony() {
-    const locations = [
+    const locations: Location[] = [
         {
             name: 'Chiesa Santa Maria della Stella',
             lat: 41.72355159187916,
             lng: 12.663535254549735,
+            tipo: 'Chiesa',
         },
         {
             name: 'Villa Grande',
             lat: 41.73602522710732,
             lng: 12.61593419212444,
+            tipo: 'Villa',
         },
     ];
 
@@ -30,26 +37,29 @@ export default function Ceremony() {
                     className="elven-script"
                     sx={{ marginBottom: 4 }}
                 >
-                    Cerimonia e Ricevimento
+                    Celebrazione e Ricevimento
                 </Typography>
                 <Grid container spacing={4}>
                     <Grid item xs={12} md={6}>
                         <Typography variant="h3" className="elven-script">
-                            Cerimonia
+                            Celebrazione
                         </Typography>
                         <Image
-                            src={chiesaStella}
+                            src="/assets/Chiesa-della-Stella.png"
                             alt="Chiesa Santa Maria della Stella"
                             width={400}
                             height={300}
-                            layout="responsive"
+                            style={{
+                                width: '100%',
+                                height: 'auto',
+                            }}
                         />
                         <Typography className="elven-text" sx={{ marginTop: 3 }}>
                             Sabato, 7 Giugno 2025
                             <br />
                             Ore 10:00
                             <br />
-                            Chiesa Santa Maria della Stella
+                            <strong>Chiesa Santa Maria della Stella </strong>
                             <br />
                             Albano Laziale
                         </Typography>
@@ -59,20 +69,23 @@ export default function Ceremony() {
                             Ricevimento
                         </Typography>
                         <Image
-                            src={villaGrande}
+                            src="/assets/villa_grande.jpg"
                             alt="Villa Grande"
                             width={400}
                             height={300}
-                            layout="responsive"
+                            style={{
+                                width: '100%',
+                                height: 'auto',
+                            }}
                         />
                         <Typography className="elven-text" sx={{ marginTop: 3 }}>
                             Sabato, 7 Giugno 2025
                             <br />
-                            Dalle ore 13:00
+                            Ore 13:00
                             <br />
-                            Villa Grande
-                            <br />
-                            Albano Laziale
+                            <strong>Villa Grande </strong>
+                                <br />
+                            Castel Gandolfo
                         </Typography>
                     </Grid>
                 </Grid>

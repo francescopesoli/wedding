@@ -36,11 +36,10 @@ export default function HomePage() {
             <ImageSlider />
             <Box
                 sx={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
+                    flex: 1,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                     backgroundColor: 'rgba(0, 0, 0, 0.3)',
                 }}
             />

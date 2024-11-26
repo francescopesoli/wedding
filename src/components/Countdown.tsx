@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Typography, Box, Grid } from '@mui/material';
+import { Typography, Box, Grid, CircularProgress } from '@mui/material';
 
 interface CountdownProps {
     targetDate: Date;
@@ -14,36 +14,52 @@ interface TimeLeft {
 
 const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
     const [timeLeft, setTimeLeft] = useState<TimeLeft>({});
-    const [isClient, setIsClient] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
+
+    const labels: { [key: string]: string } = {
+        days: 'Giorni',
+        hours: 'Ore',
+        minutes: 'Minuti',
+        seconds: 'Secondi',
+    };
 
     useEffect(() => {
-        setIsClient(true);
-        const timer = setTimeout(() => {
+        const calculateTimeLeft = (): TimeLeft => {
+            const difference = +targetDate - +new Date();
+            if (difference > 0) {
+                return {
+                    days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+                    hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+                    minutes: Math.floor((difference / 1000 / 60) % 60),
+                    seconds: Math.floor((difference / 1000) % 60),
+                };
+            }
+            return {};
+        };
+
+        // Initial calculation
+        setTimeLeft(calculateTimeLeft());
+        setIsLoading(false);
+
+        // Set up interval for updates
+        const timer = setInterval(() => {
             setTimeLeft(calculateTimeLeft());
         }, 1000);
-        return () => clearTimeout(timer);
-    }, [timeLeft]);
 
-    function calculateTimeLeft(): TimeLeft {
-        const difference = +targetDate - +new Date();
-        if (difference > 0) {
-            return {
-                days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-                hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-                minutes: Math.floor((difference / 1000 / 60) % 60),
-                seconds: Math.floor((difference / 1000) % 60),
-            };
-        }
-        return {};
-    }
+        return () => clearInterval(timer);
+    }, [targetDate]);
 
-    if (!isClient) {
-        return null;
+    if (isLoading) {
+        return (
+            <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
+                <CircularProgress />
+            </Box>
+        );
     }
 
     if (Object.keys(timeLeft).length === 0) {
         return (
-            <Typography variant="h5" sx={{ color: '#fff' }}>
+            <Typography variant="h5" sx={{ color: '#fff', mt: 4 }}>
                 È il grande giorno!
             </Typography>
         );
@@ -85,7 +101,7 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
                                     fontSize: '1rem',
                                 }}
                             >
-                                {interval}
+                                {labels[interval]}
                             </Typography>
                         </Box>
                     </Grid>

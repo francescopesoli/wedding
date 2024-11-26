@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Grid, Typography, Box } from '@mui/material';
 import { motion } from 'framer-motion';
+import DonationSection from "./DonationSection";
 
 const events = [
     {
@@ -16,12 +17,17 @@ const events = [
     {
         date: '2024',
         title: 'La Proposta',
-        description: 'Francesco ha fatto la proposta durante un weekend a Venezia.',
+        description: 'Francesco ha fatto la proposta durante un weekend sul Lago di Albano.',
     },
     {
         date: '2025',
         title: 'Il Grande Giorno',
         description: 'Ci sposiamo!',
+    },
+    {
+        date: '202..',
+        title: 'La Nostra Casa',
+        description: `Il nostro sogno di costruire un nido d'amore insieme.`,
     },
 ];
 
@@ -75,6 +81,7 @@ export default function OurStory() {
                         </motion.div>
                     ))}
                 </div>
+                <DonationSection />
             </Container>
         </Box>
     );

@@ -70,8 +70,6 @@ export default function ContactUs() {
                             Informazioni di Contatto
                         </Typography>
                         <Typography className="elven-text contact-info" sx={{ mt: 2 }}>
-                            Telefono: +39 123 456 7890
-                            <br />
                             Email: francesco.beatrice@example.com
                         </Typography>
                     </Grid>

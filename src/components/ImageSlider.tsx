@@ -3,9 +3,9 @@ import { Box } from '@mui/material';
 import Image from 'next/image';
 
 const images = [
-    '/src/assets/couple/couple1.jpg',
-    '/src/assets/couple/couple2.jpg',
-    '/src/assets/couple/couple3.jpg',
+    '/assets/couple/couple1.jpeg',
+    '/assets/couple/couple2.jpeg',
+    '/assets/couple/couple3.jpeg',
 ];
 
 export default function ImageSlider() {
@@ -22,11 +22,26 @@ export default function ImageSlider() {
     return (
         <Box
             sx={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
+                position: 'relative',
+                width: '80%',
+                height: '60vh',
+                margin: '0 auto',
+                overflow: 'hidden',
+                '&::before, &::after': {
+                    content: '""',
+                    position: 'absolute',
+                    top: 0,
+                    bottom: 0,
+                    width: '10%',
+                    background: 'inherit',
+                    zIndex: 1,
+                },
+                '&::before': {
+                    left: 0,
+                },
+                '&::after': {
+                    right: 0,
+                },
                 '& > div': {
                     position: 'absolute',
                     top: 0,
@@ -46,8 +61,11 @@ export default function ImageSlider() {
                     <Image
                         src={src}
                         alt={`Francesco e Beatrice ${index + 1}`}
-                        layout="fill"
-                        objectFit="cover"
+                        fill
+                        sizes="100vw"
+                        style={{
+                            objectFit: 'cover',
+                        }}
                         quality={100}
                         priority={index === 0}
                     />
@@ -56,3 +74,4 @@ export default function ImageSlider() {
         </Box>
     );
 }
+
