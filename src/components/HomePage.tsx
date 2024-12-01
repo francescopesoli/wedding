@@ -31,18 +31,10 @@ export default function HomePage() {
                         backgroundPosition: '0% 50%',
                     },
                 },
+                px: { xs: 2, sm: 4 }, // Padding laterale per schermi piccoli
             }}
         >
             <ImageSlider />
-            <Box
-                sx={{
-                    flex: 1,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    backgroundColor: 'rgba(0, 0, 0, 0.3)',
-                }}
-            />
             <Container maxWidth="md" sx={{ position: 'relative', zIndex: 1 }}>
                 <Box textAlign="center">
                     <Typography
@@ -50,7 +42,7 @@ export default function HomePage() {
                         component="h1"
                         sx={{
                             fontFamily: '"Great Vibes", cursive',
-                            fontSize: { xs: '3rem', sm: '4rem', md: '5rem' },
+                            fontSize: { xs: '2.5rem', sm: '3.5rem', md: '5rem' },
                             color: 'white',
                             textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
                             mb: 2,
@@ -63,7 +55,7 @@ export default function HomePage() {
                         component="h2"
                         sx={{
                             fontFamily: '"Roboto", sans-serif',
-                            fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
+                            fontSize: { xs: '1rem', sm: '1.5rem', md: '2rem' },
                             color: 'white',
                             textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
                             mb: 4,
@@ -75,11 +67,20 @@ export default function HomePage() {
                         sx={{
                             backgroundColor: 'rgba(255, 255, 255, 0.8)',
                             borderRadius: '8px',
-                            padding: '20px',
+                            padding: { xs: '10px', sm: '20px' },
                             boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
                         }}
                     >
-                        <Typography variant="h4" component="h3" gutterBottom sx={{ fontFamily: '"Great Vibes", cursive', color: 'primary.main' }}>
+                        <Typography
+                            variant="h4"
+                            component="h3"
+                            gutterBottom
+                            sx={{
+                                fontFamily: '"Great Vibes", cursive',
+                                color: 'primary.main',
+                                fontSize: { xs: '1.2rem', sm: '1.5rem', md: '2rem' },
+                            }}
+                        >
                             Ci sposiamo tra
                         </Typography>
                         <Countdown targetDate={weddingDate} />
@@ -89,4 +90,3 @@ export default function HomePage() {
         </Box>
     );
 }
-

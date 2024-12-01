@@ -7,6 +7,7 @@ import OurStory from '../components/OurStory';
 import Ceremony from '../components/Ceremony';
 import ContactUs from '../components/ContactUs';
 import LoadingPage from '../components/LoadingPage';
+import Footer from "../components/Footer";
 
 const theme = createTheme({
     palette: {
@@ -63,6 +64,7 @@ export default function Home() {
                         <Ceremony />
                         <ContactUs />
                     </main>
+                    <Footer />
                 </>
             )}
         </ThemeProvider>

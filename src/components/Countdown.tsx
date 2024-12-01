@@ -37,11 +37,9 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
             return {};
         };
 
-        // Initial calculation
         setTimeLeft(calculateTimeLeft());
         setIsLoading(false);
 
-        // Set up interval for updates
         const timer = setInterval(() => {
             setTimeLeft(calculateTimeLeft());
         }, 1000);
@@ -69,7 +67,7 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
         <Box sx={{ mt: 4 }}>
             <Grid container spacing={2} justifyContent="center">
                 {Object.entries(timeLeft).map(([interval, value]) => (
-                    <Grid item key={interval}>
+                    <Grid item key={interval} xs={6} sm={3}>
                         <Box
                             sx={{
                                 backgroundColor: 'rgba(255, 255, 255, 0.2)',
@@ -86,7 +84,7 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
                                     color: '#2c2a2a',
                                     fontWeight: 'bold',
                                     textAlign: 'center',
-                                    fontSize: '2rem',
+                                    fontSize: { xs: '1.5rem', sm: '2rem' },
                                 }}
                             >
                                 {value}
@@ -98,7 +96,7 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
                                     color: '#9370db',
                                     textAlign: 'center',
                                     textTransform: 'uppercase',
-                                    fontSize: '1rem',
+                                    fontSize: { xs: '0.8rem', sm: '1rem' },
                                 }}
                             >
                                 {labels[interval]}
