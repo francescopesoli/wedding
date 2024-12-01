@@ -26,7 +26,10 @@
         "./src/components"
       ]
     },
-    "target": "ES2017"
+    "target": "ES2017",
+    "types": [
+      "tailwindcss"
+    ]
   },
   "include": [
     "next-env.d.ts",

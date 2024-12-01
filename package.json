@@ -19,14 +19,17 @@
     "@mui/material": "^5.14.6",
     "@react-google-maps/api": "^2.16.0",
     "aos": "^2.3.4",
+    "autoprefixer": "^10.4.20",
     "framer-motion": "^10.12.16",
     "leaflet": "^1.9.4",
     "lottie-react": "^2.2.0",
     "next": "13.4.15",
+    "postcss": "^8.4.49",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-leaflet": "^4.1.0",
-    "react-typed": "^2.0.12"
+    "react-typed": "^2.0.12",
+    "tailwindcss": "^3.4.15"
   },
   "devDependencies": {
     "@types/aos": "^3.0.5",
@@ -34,6 +37,7 @@
     "@types/node": "^18.17.18",
     "@types/react": "^18.0.38",
     "@types/react-dom": "^18.0.13",
+    "@types/tailwindcss": "^3.1.0",
     "@typescript-eslint/eslint-plugin": "^5.59.11",
     "eslint": "^8.38.0",
     "eslint-config-prettier": "^8.8.0",
