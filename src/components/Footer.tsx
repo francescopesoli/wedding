@@ -1,6 +1,5 @@
 import React from 'react';
-import { Container, Typography, Box, IconButton, useTheme, useMediaQuery } from '@mui/material';
-import { Facebook, Instagram, Email } from '@mui/icons-material';
+import { Container, Typography, Box, useTheme, useMediaQuery } from '@mui/material';
 
 export default function Footer() {
     const theme = useTheme();
