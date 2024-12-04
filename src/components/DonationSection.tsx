@@ -68,7 +68,7 @@ export default function DonationSection() {
                 onClick={() => setOpen(true)}
                 sx={styles.button}
             >
-                Click qui per aiutarci
+                Clicca qui per aiutarci
             </Button>
             <Modal
                 open={open}
