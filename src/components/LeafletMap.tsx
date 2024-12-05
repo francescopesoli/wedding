@@ -100,7 +100,7 @@ const LeafletMap: React.FC<MapProps> = ({ locations }) => {
                     font-size: 12px;
                     white-space: nowrap;
                     position: absolute;
-                    top: -25px;
+                    top: -40px;
                     left: 50%;
                     transform: translateX(-50%);
                     box-shadow: 0 1px 3px rgba(0,0,0,0.2);

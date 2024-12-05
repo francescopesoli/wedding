@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Typography, Box, Grid, CircularProgress } from '@mui/material';
+import {Typography, Box, Grid, CircularProgress,useTheme, useMediaQuery} from '@mui/material';
 
 interface CountdownProps {
     targetDate: Date;
@@ -15,6 +15,8 @@ interface TimeLeft {
 const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
     const [timeLeft, setTimeLeft] = useState<TimeLeft>({});
     const [isLoading, setIsLoading] = useState(true);
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     const labels: { [key: string]: string } = {
         days: 'Giorni',
@@ -50,7 +52,7 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
     if (isLoading) {
         return (
             <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
-                <CircularProgress />
+                <CircularProgress size={isMobile ? 30 : 40} />
             </Box>
         );
     }
@@ -64,39 +66,38 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
     }
 
     return (
-        <Box sx={{ mt: 4 }}>
-            <Grid container spacing={2} justifyContent="center">
+        <Box sx={{ mt: { xs: 1, sm: 2 } }}>
+            <Grid container spacing={isMobile ? 1 : 2} justifyContent="center">
                 {Object.entries(timeLeft).map(([interval, value]) => (
-                    <Grid item key={interval} xs={6} sm={3}>
+                    <Grid item key={interval}>
                         <Box
                             sx={{
-                                backgroundColor: 'rgba(255, 255, 255, 0.2)',
-                                padding: 2,
+                                backgroundColor: 'primary.main',
+                                padding: isMobile ? '4px 8px' : '8px 16px',
                                 borderRadius: 2,
-                                minWidth: 60,
-                                boxShadow: '0 4px 8px rgba(0,0,0,0.3)',
+                                display: 'flex',
+                                flexDirection: isMobile ? 'row' : 'column',
+                                alignItems: 'center',
+                                justifyContent: 'center',
                             }}
                         >
                             <Typography
-                                variant="h4"
-                                className="elven-script"
+                                variant={isMobile ? "body1" : "h4"}
                                 sx={{
-                                    color: '#2c2a2a',
+                                    color: 'white',
                                     fontWeight: 'bold',
-                                    textAlign: 'center',
-                                    fontSize: { xs: '1.5rem', sm: '2rem' },
+                                    fontSize: isMobile ? '0.9rem' : { xs: '1.2rem', sm: '1.5rem', md: '2rem' },
+                                    mr: isMobile ? 1 : 0,
                                 }}
                             >
                                 {value}
                             </Typography>
                             <Typography
-                                variant="subtitle1"
-                                className="elven-text"
+                                variant="caption"
                                 sx={{
-                                    color: '#9370db',
-                                    textAlign: 'center',
+                                    color: 'rgba(255,255,255,0.8)',
                                     textTransform: 'uppercase',
-                                    fontSize: { xs: '0.8rem', sm: '1rem' },
+                                    fontSize: isMobile ? '0.6rem' : { xs: '0.6rem', sm: '0.8rem', md: '1rem' },
                                 }}
                             >
                                 {labels[interval]}

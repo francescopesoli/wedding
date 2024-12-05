@@ -44,6 +44,19 @@ export default function HomePage() {
                 }}
             >
                 <Box
+                    sx={{
+                        width: '100%',
+                        height: isMobile ? '50vh' : '60vh',
+                        overflow: 'hidden',
+                        borderRadius: '8px',
+                        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                        marginBottom: '3rem',
+                        marginTop: '3rem',
+                    }}
+                >
+                    <ImageSlider />
+                </Box>
+                <Box
                     textAlign="center"
                     sx={{
                         backgroundColor: 'rgba(255, 255, 255, 0.8)',
@@ -95,17 +108,7 @@ export default function HomePage() {
                     <Countdown targetDate={weddingDate} />
                 </Box>
 
-                <Box
-                    sx={{
-                        width: '100%',
-                        height: isMobile ? '50vh' : '60vh',
-                        overflow: 'hidden',
-                        borderRadius: '8px',
-                        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-                    }}
-                >
-                    <ImageSlider />
-                </Box>
+
             </Container>
         </Box>
     );
