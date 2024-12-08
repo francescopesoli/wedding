@@ -49,7 +49,7 @@ export default function Navbar() {
                             textShadow: isScrolled ? 'none' : '2px 2px 4px rgba(0,0,0,0.5)',
                         }}
                     >
-                        Francesco & Beatrice
+                  <img src="/F_B-logo.ico" width={'50px'} height={'50px'} alt={'logo'}/>      Francesco & Beatrice
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -95,7 +95,7 @@ export default function Navbar() {
                         href="#home"
                         sx={{
                             mr: 2,
-                            display: { xs: 'flex', md: 'none' },
+                            display: {xs: 'flex', md: 'none'},
                             flexGrow: 1,
                             fontFamily: '"Great Vibes", cursive',
                             fontSize: '1.5rem',
@@ -104,9 +104,9 @@ export default function Navbar() {
                             textShadow: isScrolled ? 'none' : '2px 2px 4px rgba(0,0,0,0.5)',
                         }}
                     >
-                        Francesco & Beatrice
+                        <img src="/F_B-logo.ico" width={'40px'} height={'40px'} alt={'logo'}/> Francesco & Beatrice
                     </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'flex-end' }}>
+                    <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex' }, justifyContent: 'flex-end' }}>
                         {['Home', 'La Nostra Storia', 'Cerimonia', 'Contattaci'].map((page) => (
                             <Button
                                 key={page}

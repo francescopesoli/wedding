@@ -45,6 +45,7 @@ export default function Home() {
             <CssBaseline />
             <Head>
                 <title>Francesco & Beatrice - Matrimonio</title>
+                <link rel="icon" href="/F&B.png" />
                 <meta name="description" content="Sito web del matrimonio di Francesco e Beatrice" />
             </Head>
 

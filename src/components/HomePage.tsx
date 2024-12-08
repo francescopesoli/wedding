@@ -46,7 +46,7 @@ export default function HomePage() {
                 <Box
                     sx={{
                         width: '100%',
-                        height: isMobile ? '50vh' : '60vh',
+                        height: isMobile ? '60vh' : '70vh',
                         overflow: 'hidden',
                         borderRadius: '8px',
                         boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
@@ -64,7 +64,7 @@ export default function HomePage() {
                         padding: { xs: '20px', sm: '30px', md: '40px' },
                         boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
                         width: '100%',
-                        maxWidth: { xs: '90%', sm: '80%', md: '70%' },
+                        maxWidth: { xs: '90%', sm: '80%', md: '90%' },
                         mb: 4, // Add margin bottom to create space between the text box and the image slider
                     }}
                 >

@@ -6,6 +6,8 @@ import emailjs from '@emailjs/browser';
 export default function ContactUs() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+    const [cellphone, setCellphone] = useState('');
+    const [guests, setGuests] = useState(0);
     const [message, setMessage] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [openSnackbar, setOpenSnackbar] = useState(false);
@@ -22,7 +24,11 @@ export default function ContactUs() {
                 'template_a5szx2h', // Sostituisci con il tuo Template ID di EmailJS
                 {
                     from_name: name,
+                    name: name,
                     from_email: email,
+                    email: email,
+                    cellphone: cellphone,
+                    guests: String(guests),
                     message: message,
                     to_email: 'francesco.beatrice.matrimonio@gmail.com', // L'email degli sposi
                 },
@@ -34,7 +40,9 @@ export default function ContactUs() {
             setOpenSnackbar(true);
             setName('');
             setEmail('');
+            setCellphone('');
             setMessage('');
+            setGuests(0);
         } catch (error) {
             console.error('Errore nell\'invio del messaggio:', error);
             setSnackbarMessage('Si è verificato un errore. Riprova più tardi.');
@@ -79,9 +87,33 @@ export default function ContactUs() {
                                 type="email"
                                 variant="outlined"
                                 fullWidth
-                                required
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
+                                InputLabelProps={{ className: 'elven-text' }}
+                                inputProps={{ className: 'elven-text' }}
+                                sx={{ fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' } }}
+                            />
+                            <TextField
+                                id="cellphone"
+                                label="Numero di Telefono"
+                                variant="outlined"
+                                type="tel"
+                                fullWidth
+                                required
+                                value={cellphone}
+                                onChange={(e) => setCellphone(e.target.value)}
+                                InputLabelProps={{ className: 'elven-text' }}
+                                inputProps={{ className: 'elven-text' }}
+                                sx={{ fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' } }}
+                            />
+                            <TextField
+                                id="guests"
+                                label="Numero di persone che saranno presenti"
+                                variant="outlined"
+                                fullWidth
+                                required
+                                value={guests}
+                                onChange={(e) => setGuests(Number(e.target.value))}
                                 InputLabelProps={{ className: 'elven-text' }}
                                 inputProps={{ className: 'elven-text' }}
                                 sx={{ fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' } }}
@@ -130,4 +162,3 @@ export default function ContactUs() {
         </Box>
     );
 }
-

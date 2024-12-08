@@ -23,7 +23,7 @@ export default function ImageSlider() {
         <Box
             sx={{
                 position: 'relative',
-                width: '80%',
+                width: '90%',
                 height: '60vh',
                 margin: '0 auto',
                 overflow: 'hidden',
