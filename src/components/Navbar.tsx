@@ -49,7 +49,7 @@ export default function Navbar() {
                             textShadow: isScrolled ? 'none' : '2px 2px 4px rgba(0,0,0,0.5)',
                         }}
                     >
-                  <img src="/F_B-logo.ico" width={'50px'} height={'50px'} alt={'logo'}/>      Francesco & Beatrice
+                  <img src="/F_B-removebg.ico" width={'50px'} height={'50px'} alt={'logo'}/>      Francesco & Beatrice
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -104,7 +104,7 @@ export default function Navbar() {
                             textShadow: isScrolled ? 'none' : '2px 2px 4px rgba(0,0,0,0.5)',
                         }}
                     >
-                        <img src="/F_B-logo.ico" width={'40px'} height={'40px'} alt={'logo'}/> Francesco & Beatrice
+                        <img src="/F_B-removebg.ico" width={'40px'} height={'40px'} alt={'logo'}/> Francesco & Beatrice
                     </Typography>
                     <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex' }, justifyContent: 'flex-end' }}>
                         {['Home', 'La Nostra Storia', 'Cerimonia', 'Contattaci'].map((page) => (
