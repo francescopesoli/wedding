@@ -59,6 +59,9 @@ export default function DonationSection() {
 
     return (
         <Box sx={{ mt: 6, textAlign: 'center' }}>
+            <Typography variant="h3" sx={styles.title}>
+                Per realizzare il nostro sogno
+            </Typography>
             <Button
                 variant="contained"
                 color="primary"
