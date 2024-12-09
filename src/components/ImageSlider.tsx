@@ -20,7 +20,7 @@ export default function ImageSlider() {
             sx={{
                 position: 'relative',
                 width: '90%',
-                height: '60vh',
+                height: '50vh',
                 margin: '0 auto',
                 overflow: 'hidden',
                 '&::before, &::after': {
