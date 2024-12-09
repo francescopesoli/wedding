@@ -14,6 +14,15 @@ export default function ContactUs() {
     const [snackbarMessage, setSnackbarMessage] = useState('');
     const [snackbarSeverity, setSnackbarSeverity] = useState<'success' | 'error'>('success');
 
+    const isFormValid = () => {
+        return (
+            name.trim() !== '' &&
+            cellphone.trim().match(/^[0-9]{10}$/) && // Controlla che il numero di telefono abbia 10 cifre
+            guests > 0 &&
+            message.trim() !== ''
+        );
+    };
+
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         setIsSubmitting(true);
@@ -71,15 +80,12 @@ export default function ContactUs() {
                         <Box component="form" onSubmit={handleSubmit} sx={{ '& .MuiTextField-root': { mb: 2 } }}>
                             <TextField
                                 id="name"
-                                label="Nome"
+                                label="Nome e Cognome"
                                 variant="outlined"
                                 fullWidth
                                 required
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
-                                InputLabelProps={{ className: 'elven-text' }}
-                                inputProps={{ className: 'elven-text' }}
-                                sx={{ fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' } }}
                             />
                             <TextField
                                 id="email"
@@ -89,9 +95,6 @@ export default function ContactUs() {
                                 fullWidth
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                InputLabelProps={{ className: 'elven-text' }}
-                                inputProps={{ className: 'elven-text' }}
-                                sx={{ fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' } }}
                             />
                             <TextField
                                 id="cellphone"
@@ -102,13 +105,10 @@ export default function ContactUs() {
                                 required
                                 value={cellphone}
                                 onChange={(e) => setCellphone(e.target.value)}
-                                InputLabelProps={{ className: 'elven-text' }}
                                 inputProps={{
-                                    className: 'elven-text',
-                                    pattern: "[0-9]{10}", // Ad esempio, 10 cifre numeriche
-                                    title: "Inserisci un numero di telefono valido (10 cifre)"
+                                    pattern: "[0-9]{10}",
+                                    title: "Inserisci un numero di telefono valido (10 cifre)",
                                 }}
-                                sx={{ fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' } }}
                             />
                             <TextField
                                 id="guests"
@@ -118,9 +118,6 @@ export default function ContactUs() {
                                 required
                                 value={guests}
                                 onChange={(e) => setGuests(Number(e.target.value))}
-                                InputLabelProps={{ className: 'elven-text' }}
-                                inputProps={{ className: 'elven-text' }}
-                                sx={{ fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' } }}
                             />
                             <TextField
                                 id="message"
@@ -132,34 +129,21 @@ export default function ContactUs() {
                                 rows={3}
                                 value={message}
                                 onChange={(e) => setMessage(e.target.value)}
-                                InputLabelProps={{ className: 'elven-text' }}
-                                inputProps={{ className: 'elven-text' }}
-                                sx={{ fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' } }}
                             />
                             <Button
                                 variant="contained"
                                 color="primary"
                                 type="submit"
-                                className="elven-button"
-                                disabled={isSubmitting}
-                                sx={{ mt: 2, fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' } }}
+                                disabled={isSubmitting || !isFormValid()}
                             >
                                 {isSubmitting ? 'Invio in corso...' : 'Invia Messaggio'}
                             </Button>
                         </Box>
                     </Grid>
-                    <Grid item xs={12} md={6}>
-                        <Typography variant="h3" className="elven-script" sx={{ fontSize: { xs: '1.8rem', sm: '2rem', md: '2.2rem' } }}>
-                            Informazioni di Contatto
-                        </Typography>
-                        <Typography className="elven-text contact-info" sx={{ mt: 2, fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' } }}>
-                            Email: francesco.beatrice.matrimonio@gmail.com
-                        </Typography>
-                    </Grid>
                 </Grid>
             </Container>
             <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar}>
-                <Alert onClose={handleCloseSnackbar} severity={snackbarSeverity} sx={{ width: '100%' }}>
+                <Alert onClose={handleCloseSnackbar} severity={snackbarSeverity}>
                     {snackbarMessage}
                 </Alert>
             </Snackbar>
