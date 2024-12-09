@@ -5,22 +5,22 @@ import DonationSection from "./DonationSection";
 
 const events = [
     {
-        date: '2020',
+        date: '08-07-2020',
         title: 'Primo Incontro',
         description: 'Ci siamo incontrati in una festa a sorpresa, è stato inaspettato anche per noi... sorpresa!\n',
     },
     {
         date: '2021',
-        title: 'Inizio come coppia innamorata ',
-        description: 'Su una panchina nella villa di Albano ci siamo scelti e abbiamo deciso di percorrere insieme un cammino di scoperta nella sincerità, nel rispetto, nell\'impegno e nell\'amore reciproco\n',
+        title: 'Inizio come coppia impegnata ',
+        description: 'Su una panchina di villa Doria ad Albano ci siamo scelti e abbiamo deciso di percorrere insieme un cammino di scoperta nella sincerità, nel rispetto, nell\'impegno e nell\'amore reciproco\n',
     },
     {
-        date: '2024',
+        date: '17-03-2024',
         title: 'La Proposta',
-        description: 'Era una domenica del 13 Marzo, sulla spiaggia del Lago Albano. In quel luogo incantevole, Francesco si è inginocchiato e ha chiesto a Beatrice di sposarlo, coronando così un momento indimenticabile della loro storia.\n',
+        description: 'Francesco portò Beatrice in un luogo incantevole, sulla spiaggia del Lago di Albano per scattare qualche foto, all\'improvviso si inginocchiò, la sorprese con un anello e le chiese di sposarlo! Beatrice disse di sì coronando così un momento indimenticabile della loro storia.\n',
     },
     {
-        date: '2025',
+        date: '07-06-2025',
         title: 'Il Grande Giorno',
         description: 'Ci sposiamo!',
     },
