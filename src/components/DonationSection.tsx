@@ -59,16 +59,13 @@ export default function DonationSection() {
 
     return (
         <Box sx={{ mt: 6, textAlign: 'center' }}>
-            <Typography variant="h3" sx={styles.title}>
-                Aiutaci a costruire il nostro nido d'amore
-            </Typography>
             <Button
                 variant="contained"
                 color="primary"
                 onClick={() => setOpen(true)}
                 sx={styles.button}
             >
-                Clicca qui per contribuire
+                Clicca qui
             </Button>
             <Modal
                 open={open}
