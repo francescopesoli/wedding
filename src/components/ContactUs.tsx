@@ -103,7 +103,11 @@ export default function ContactUs() {
                                 value={cellphone}
                                 onChange={(e) => setCellphone(e.target.value)}
                                 InputLabelProps={{ className: 'elven-text' }}
-                                inputProps={{ className: 'elven-text' }}
+                                inputProps={{
+                                    className: 'elven-text',
+                                    pattern: "[0-9]{10}", // Ad esempio, 10 cifre numeriche
+                                    title: "Inserisci un numero di telefono valido (10 cifre)"
+                                }}
                                 sx={{ fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' } }}
                             />
                             <TextField
