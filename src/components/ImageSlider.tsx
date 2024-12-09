@@ -2,11 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Box } from '@mui/material';
 import Image from 'next/image';
 
-const images = [
-    '/assets/couple/couple1.jpeg',
-    '/assets/couple/couple2.jpeg',
-    '/assets/couple/couple3.jpeg',
-];
+const images = Array.from({ length: 55 }, (_, i) => `/assets/couple/couple${i + 1}.jpeg`);
 
 export default function ImageSlider() {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -14,7 +10,7 @@ export default function ImageSlider() {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-        }, 5000);
+        }, 3000);
 
         return () => clearInterval(interval);
     }, []);
@@ -64,7 +60,8 @@ export default function ImageSlider() {
                         fill
                         sizes="100vw"
                         style={{
-                            objectFit: 'cover',
+                            objectFit: 'contain',
+                            width: '100%'
                         }}
                         quality={100}
                         priority={index === 0}
