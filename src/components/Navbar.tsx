@@ -34,6 +34,12 @@ export default function Navbar() {
         >
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
+                    <img
+                        src={isScrolled ? "/F_B_scrollable-removebg.png" : "/F_B_white-removebg.png"}
+                        width="50"
+                        height="50"
+                        alt="logo"
+                    />
                     <Typography
                         variant="h6"
                         noWrap
@@ -49,12 +55,7 @@ export default function Navbar() {
                             textShadow: isScrolled ? 'none' : '2px 2px 4px rgba(0,0,0,0.5)',
                         }}
                     >
-                        <img
-                            src={isScrolled ? "/F_B_scrollable-removebg.png" : "/F_B_white-removebg.png"}
-                            width="50"
-                            height="50"
-                            alt="logo"
-                        /> Francesco & Beatrice
+                        Francesco & Beatrice
                     </Typography>
 
                     <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
@@ -66,7 +67,7 @@ export default function Navbar() {
                             onClick={handleMenuOpen}
                             color="inherit"
                         >
-                            <MenuIcon />
+                            <MenuIcon/>
                         </IconButton>
                         <Menu
                             id="menu-appbar"
@@ -83,7 +84,7 @@ export default function Navbar() {
                             open={Boolean(anchorEl)}
                             onClose={handleMenuClose}
                             sx={{
-                                display: { xs: 'block', md: 'none' },
+                                display: {xs: 'block', md: 'none'},
                             }}
                         >
                             {['Home', 'La Nostra Storia', 'Cerimonia', 'Contattaci'].map((page) => (
@@ -93,6 +94,12 @@ export default function Navbar() {
                             ))}
                         </Menu>
                     </Box>
+                    <img
+                        src={isScrolled ? "/F_B_scrollable-removebg.png" : "/F_B_white-removebg.png"}
+                        width="50"
+                        height="50"
+                        alt="logo"
+                    />
                     <Typography
                         variant="h5"
                         noWrap
@@ -109,12 +116,7 @@ export default function Navbar() {
                             textShadow: isScrolled ? 'none' : '2px 2px 4px rgba(0,0,0,0.5)',
                         }}
                     >
-                        <img
-                            src={isScrolled ? "/F_B_scrollable-removebg.png" : "/F_B_white-removebg.png"}
-                            width="50"
-                            height="50"
-                            alt="logo"
-                        /> Francesco & Beatrice
+                        Francesco & Beatrice
                     </Typography>
                     <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}, justifyContent: 'flex-end'}}>
                         {['Home', 'La Nostra Storia', 'Cerimonia', 'Contattaci'].map((page) => (
