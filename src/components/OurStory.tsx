@@ -7,17 +7,17 @@ const events = [
     {
         date: '2020',
         title: 'Primo Incontro',
-        description: 'Ci siamo incontrati durante un evento di beneficenza a Roma.',
+        description: 'Ci siamo incontrati in una festa a sorpresa, è stato inaspettato anche per noi... sorpresa!\n',
     },
     {
         date: '2021',
-        title: 'Primo Appuntamento',
-        description: 'La nostra prima cena romantica a Trastevere.',
+        title: 'Inizio come coppia innamorata ',
+        description: 'Su una panchina nella villa di Albano ci siamo scelti e abbiamo deciso di percorrere insieme un cammino di scoperta nella sincerità, nel rispetto, nell\'impegno e nell\'amore reciproco\n',
     },
     {
         date: '2024',
         title: 'La Proposta',
-        description: 'Francesco ha fatto la proposta durante un weekend sul Lago di Albano.',
+        description: 'Era una domenica del 13 Marzo, sulla spiaggia del Lago Albano. In quel luogo incantevole, Francesco si è inginocchiato e ha chiesto a Beatrice di sposarlo, coronando così un momento indimenticabile della loro storia.\n',
     },
     {
         date: '2025',
@@ -27,7 +27,7 @@ const events = [
     {
         date: '202..',
         title: 'La Nostra Casa',
-        description: `Il nostro sogno di costruire un nido d'amore insieme.`,
+        description: `Il nostro cammino insieme continua... Se volete, potete contribuire a realizzare la nostra casa`,
     },
 ];
 
