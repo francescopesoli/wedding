@@ -34,12 +34,6 @@ export default function Navbar() {
         >
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <img
-                        src={isScrolled ? "/F_B_scrollable-removebg.png" : "/F_B_white-removebg.png"}
-                        width="50"
-                        height="50"
-                        alt="logo"
-                    />
                     <Typography
                         variant="h6"
                         noWrap
@@ -55,7 +49,12 @@ export default function Navbar() {
                             textShadow: isScrolled ? 'none' : '2px 2px 4px rgba(0,0,0,0.5)',
                         }}
                     >
-                        Francesco & Beatrice
+                        <img
+                            src={isScrolled ? "/F_B_scrollable-removebg.png" : "/F_B_white-removebg.png"}
+                            width="50"
+                            height="50"
+                            alt="logo"
+                        /> Francesco & Beatrice
                     </Typography>
 
                     <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
