@@ -41,7 +41,7 @@ export default function Navbar() {
                         href="#home"
                         sx={{
                             mr: 2,
-                            display: { xs: 'none', md: 'flex' },
+                            display: {xs: 'none', md: 'flex'},
                             fontFamily: '"Great Vibes", cursive',
                             fontSize: '2rem',
                             color: isScrolled ? 'primary.main' : 'white',
@@ -49,10 +49,15 @@ export default function Navbar() {
                             textShadow: isScrolled ? 'none' : '2px 2px 4px rgba(0,0,0,0.5)',
                         }}
                     >
-                  <img src="/F_B-removebg.ico" width={'50px'} height={'50px'} alt={'logo'}/>      Francesco & Beatrice
+                        <img
+                            src={isScrolled ? "/F_B_scrollable-removebg.png" : "/F_B_white-removebg.png"}
+                            width="50"
+                            height="50"
+                            alt="logo"
+                        /> Francesco & Beatrice
                     </Typography>
 
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                    <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
                         <IconButton
                             size="large"
                             aria-label="account of current user"
@@ -104,9 +109,14 @@ export default function Navbar() {
                             textShadow: isScrolled ? 'none' : '2px 2px 4px rgba(0,0,0,0.5)',
                         }}
                     >
-                        <img src="/F_B-removebg.ico" width={'40px'} height={'40px'} alt={'logo'}/> Francesco & Beatrice
+                        <img
+                            src={isScrolled ? "/F_B_scrollable-removebg.png" : "/F_B_white-removebg.png"}
+                            width="50"
+                            height="50"
+                            alt="logo"
+                        /> Francesco & Beatrice
                     </Typography>
-                    <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex' }, justifyContent: 'flex-end' }}>
+                    <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}, justifyContent: 'flex-end'}}>
                         {['Home', 'La Nostra Storia', 'Cerimonia', 'Contattaci'].map((page) => (
                             <Button
                                 key={page}
