@@ -5,22 +5,22 @@ import DonationSection from "./DonationSection";
 
 const events = [
     {
-        date: '08/07/2020',
+        date: '08.07.2020',
         title: 'Primo Incontro',
         description: 'Francesco e Beatrice si sono incontrati in una festa a sorpresa in un locale sul Lago, è stato inaspettato anche per loro... sorpresa!\n',
     },
     {
-        date: '07/08/2020',
+        date: '07.08.2020',
         title: 'Inizio come coppia impegnata',
         description: 'Su una panchina di villa Doria ad Albano ci siamo scelti e abbiamo deciso di percorrere insieme un cammino di scoperta nella sincerità, nel rispetto, nell\'impegno e nell\'amore reciproco\n',
     },
     {
-        date: '17/03/2024',
+        date: '17.03.024',
         title: 'La Proposta',
         description: 'Francesco portò Beatrice in un luogo incantevole, sulla spiaggia del Lago di Albano, per scattare qualche foto. All\'improvviso si inginocchiò, la sorprese con un anello e le chiese di sposarlo...Beatrice disse di sì! Coronarono così un momento indimenticabile della loro storia.\n',
     },
     {
-        date: '07/06/2025',
+        date: '07.06.2025',
         title: 'Il Grande Giorno',
         description: 'Ci sposiamo!',
     },
@@ -58,7 +58,7 @@ export default function OurStory() {
                                     item
                                     xs={12}
                                     md={4}
-                                    sx={{ textAlign: { xs: 'left', md: 'right' } }}
+                                    sx={{ textAlign: { xs: 'left', md: 'right' }, marginTop: { xs: 1, md: 0 } }}
                                 >
                                     <Typography
                                         variant="h3"

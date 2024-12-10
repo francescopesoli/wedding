@@ -46,7 +46,7 @@ export default function HomePage() {
                 <Box
                     sx={{
                         width: '115%',
-                        height: isMobile ? '40vh' : '60vh',
+                        height: isMobile ? '45vh' : '70vh',
                         overflow: 'hidden',
                         borderRadius: '8px',
                         boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Box } from '@mui/material';
+import {Box, useMediaQuery, useTheme} from '@mui/material';
 import Image from 'next/image';
 
 const images = Array.from({ length: 55 }, (_, i) => `/assets/couple/couple${i + 1}.jpeg`);
 
 export default function ImageSlider() {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -20,7 +22,7 @@ export default function ImageSlider() {
             sx={{
                 position: 'relative',
                 width: '90%',
-                height: '50vh',
+                height: isMobile ? '50vh' : '70vh',
                 margin: '0 auto',
                 overflow: 'hidden',
                 '&::before, &::after': {

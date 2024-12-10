@@ -1,10 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { AppBar, Toolbar, Container, Typography, IconButton, Button, Menu, MenuItem, Box } from '@mui/material';
+import {
+    AppBar,
+    Toolbar,
+    Container,
+    Typography,
+    IconButton,
+    Button,
+    Menu,
+    MenuItem,
+    Box,
+    useTheme,
+    useMediaQuery
+} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 
 export default function Navbar() {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const [isScrolled, setIsScrolled] = useState(false);
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
@@ -93,12 +107,14 @@ export default function Navbar() {
                             ))}
                         </Menu>
                     </Box>
+                    {isMobile && (
                     <img
                         src={isScrolled ? "/F_B_scrollable-removebg.png" : "/F_B_white-removebg.png"}
                         width="50"
                         height="50"
                         alt="logo"
                     />
+                    )}
                     <Typography
                         variant="h5"
                         noWrap
