@@ -47,7 +47,7 @@ export default function Ceremony() {
                         />
                         <Box display="flex" justifyContent="center" sx={{ marginTop: 3 }}>
                             <Typography className="elven-text" sx={{ textAlign: 'left' }}>
-                                Sabato, 7 Giugno 2025
+                                <strong>Sabato, 7 Giugno 2025</strong>
                                 <br />
                                 Ore 10:00
                                 <br />

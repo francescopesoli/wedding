@@ -12,23 +12,22 @@ const events = [
     {
         date: '07.08.2020',
         title: 'Inizio come coppia impegnata',
-        description: 'Su una panchina di villa Doria ad Albano ci siamo scelti e abbiamo deciso di percorrere insieme un cammino di scoperta nella sincerità, nel rispetto, nell\'impegno e nell\'amore reciproco\n',
+        description: 'Su una panchina di Villa Doria ad Albano Francesco e Beatrice si sono scelti e hanno deciso di percorrere insieme un cammino di scoperta nella sincerità, nel rispetto, nell\'impegno e nell\'amore reciproco.\n',
     },
     {
-        date: '17.03.024',
+        date: '17.03.2024',
         title: 'La Proposta',
-        description: 'Francesco portò Beatrice in un luogo incantevole, sulla spiaggia del Lago di Albano, per scattare qualche foto. All\'improvviso si inginocchiò, la sorprese con un anello e le chiese di sposarlo...Beatrice disse di sì! Coronarono così un momento indimenticabile della loro storia.\n',
+        description: 'Francesco portò Beatrice in un luogo significativo per loro, sulla spiaggia del Lago di Albano, per scattare qualche foto. All\'improvviso si inginocchiò, la sorprese con un anello e le chiese di sposarlo...Beatrice disse di sì! Coronarono così un momento indimenticabile della loro storia.\n',
     },
     {
         date: '07.06.2025',
         title: 'Il Grande Giorno',
-        description: 'Ci sposiamo!',
+        description: 'Francesco e Beatrice si sposano! Da qui ha inizio un nuovo cammino...',
     },
     {
         date: '202..',
-        title: 'La Nostra Casa',
-        description: `Il nostro cammino insieme continua, due cuori e una... Se volete, potete contribuire a realizzare la nostra casa
-`,
+        title: 'Una nuova dimora',
+        description: `Il cammino di Francesco e Beatrice insieme continua, due cuori e una... Se volete, potete contribuire a realizzare la loro casa`,
     },
 ];
 

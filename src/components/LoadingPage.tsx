@@ -26,9 +26,9 @@ const LoadingPage: React.FC = () => {
                 sx={{
                     fontFamily: '"Great Vibes", cursive',
                     color: '#4a0e4e',
-                    fontSize: isMobile ? '2rem' : '3rem',
+                    fontSize: isMobile ? '3rem' : '3rem',
                     marginBottom: isMobile ? '1rem' : '1.5rem',
-                    marginLeft: isMobile ? '2rem' : '0',
+                    marginLeft: isMobile ? '1.5rem' : '0',
                 }}
             >
                 Benvenuti al matrimonio di
@@ -40,9 +40,9 @@ const LoadingPage: React.FC = () => {
                 sx={{
                     fontFamily: '"Great Vibes", cursive',
                     color: '#4a0e4e',
-                    fontSize: isMobile ? '2.5rem' : '3.5rem',
+                    fontSize: isMobile ? '2rem' : '3.5rem',
                     marginBottom: isMobile ? '2rem' : '2.5rem',
-                    marginLeft: isMobile ? '2rem' : '0',
+                    marginLeft: isMobile ? '1.5rem' : '0',
                 }}
             >
                 Beatrice e Francesco
