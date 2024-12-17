@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import {
     AppBar,
     Toolbar,
@@ -13,6 +14,14 @@ import {
     useMediaQuery
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import Image from 'next/image';
+
+const navItems = [
+    { name: 'Home', href: '/' },
+    { name: 'La Nostra Storia', href: '/#storia' },
+    { name: 'Cerimonia', href: '/#cerimonia' },
+    { name: 'Contattaci', href: '/#contattaci' }
+];
 
 export default function Navbar() {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -51,8 +60,8 @@ export default function Navbar() {
                     <Typography
                         variant="h6"
                         noWrap
-                        component="a"
-                        href="#home"
+                        component={Link}
+                        href="/"
                         sx={{
                             mr: 2,
                             display: {xs: 'none', md: 'flex'},
@@ -61,20 +70,22 @@ export default function Navbar() {
                             color: isScrolled ? 'primary.main' : 'white',
                             textDecoration: 'none',
                             textShadow: isScrolled ? 'none' : '2px 2px 4px rgba(0,0,0,0.5)',
+                            alignItems: 'center',
                         }}
                     >
-                        <img
+                        <Image
                             src={isScrolled ? "/F_B_scrollable-removebg.png" : "/F_B_white-removebg.png"}
-                            width="50"
-                            height="50"
+                            width={50}
+                            height={50}
                             alt="logo"
-                        /> Francesco & Beatrice
+                        />
+                        Francesco & Beatrice
                     </Typography>
 
                     <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
                         <IconButton
                             size="large"
-                            aria-label="account of current user"
+                            aria-label="menu"
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
                             onClick={handleMenuOpen}
@@ -100,26 +111,26 @@ export default function Navbar() {
                                 display: {xs: 'block', md: 'none'},
                             }}
                         >
-                            {['Home', 'La Nostra Storia', 'Cerimonia', 'Contattaci'].map((page) => (
-                                <MenuItem key={page} onClick={handleMenuClose}>
-                                    <Typography textAlign="center">{page}</Typography>
+                            {navItems.map((item) => (
+                                <MenuItem key={item.name} onClick={handleMenuClose} component={Link} href={item.href}>
+                                    <Typography textAlign="center">{item.name}</Typography>
                                 </MenuItem>
                             ))}
                         </Menu>
                     </Box>
                     {isMobile && (
-                    <img
-                        src={isScrolled ? "/F_B_scrollable-removebg.png" : "/F_B_white-removebg.png"}
-                        width="50"
-                        height="50"
-                        alt="logo"
-                    />
+                        <Image
+                            src={isScrolled ? "/F_B_scrollable-removebg.png" : "/F_B_white-removebg.png"}
+                            width={50}
+                            height={50}
+                            alt="logo"
+                        />
                     )}
                     <Typography
                         variant="h5"
                         noWrap
-                        component="a"
-                        href="#home"
+                        component={Link}
+                        href="/"
                         sx={{
                             mr: 2,
                             display: {xs: 'flex', md: 'none'},
@@ -134,10 +145,11 @@ export default function Navbar() {
                         Francesco & Beatrice
                     </Typography>
                     <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}, justifyContent: 'flex-end'}}>
-                        {['Home', 'La Nostra Storia', 'Cerimonia', 'Contattaci'].map((page) => (
+                        {navItems.map((item) => (
                             <Button
-                                key={page}
-                                onClick={handleMenuClose}
+                                key={item.name}
+                                component={Link}
+                                href={item.href}
                                 sx={{
                                     my: 2,
                                     color: isScrolled ? 'primary.main' : 'white',
@@ -145,7 +157,7 @@ export default function Navbar() {
                                     textShadow: isScrolled ? 'none' : '1px 1px 2px rgba(0,0,0,0.5)',
                                 }}
                             >
-                                {page}
+                                {item.name}
                             </Button>
                         ))}
                     </Box>

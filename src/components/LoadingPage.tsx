@@ -45,7 +45,7 @@ const LoadingPage: React.FC = () => {
                     marginLeft: isMobile ? '1.5rem' : '0',
                 }}
             >
-                Beatrice e Francesco
+                Francesco e Beatrice
             </Typography>
             <CircularProgress
                 size={isMobile ? 50 : 60}
