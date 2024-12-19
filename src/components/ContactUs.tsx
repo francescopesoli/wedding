@@ -73,7 +73,7 @@ export default function ContactUs() {
         <Box component="section" id="contattaci" sx={{ py: 5 }} className="contact-us">
             <Container>
                 <Typography variant="h2" align="center" className="elven-script" gutterBottom>
-                    Contattaci
+                    Conferma la tua presenza:
                 </Typography>
                 <Grid container spacing={4}>
                     <Grid item xs={12} md={6}>
@@ -139,6 +139,14 @@ export default function ContactUs() {
                                 {isSubmitting ? 'Invio in corso...' : 'Invia Messaggio'}
                             </Button>
                         </Box>
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                        <Typography variant="h3" className="elven-script" sx={{ fontSize: { xs: '1.8rem', sm: '2rem', md: '2.2rem' } }}>
+                            Informazioni di Contatto
+                        </Typography>
+                        <Typography className="elven-text contact-info" sx={{ mt: 2, fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' } }}>
+                             Email: <a href="mailto:francesco.beatrice.matrimonio@gmail.com">francesco.beatrice.matrimonio@gmail.com</a>
+                        </Typography>
                     </Grid>
                 </Grid>
             </Container>
