@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Grid, TextField, Button, Typography, Snackbar, Alert } from '@mui/material';
+import {Container, Grid, TextField, Button, Typography, Snackbar, Alert, FormControl, FormLabel} from '@mui/material';
 import Box from '@mui/material/Box';
 import emailjs from '@emailjs/browser';
 
@@ -119,17 +119,19 @@ export default function ContactUs() {
                                 value={guests}
                                 onChange={(e) => setGuests(Number(e.target.value))}
                             />
-                            <TextField
-                                id="message"
-                                label="Inserisci qui eventuali intolleranze alimentari o altre richieste"
-                                variant="outlined"
-                                fullWidth
-                                required
-                                multiline
-                                rows={3}
-                                value={message}
-                                onChange={(e) => setMessage(e.target.value)}
-                            />
+                            <FormControl fullWidth required>
+                                <FormLabel htmlFor="message" sx={{ whiteSpace: 'normal' }}>
+                                    Inserisci qui eventuali intolleranze alimentari o altre richieste
+                                </FormLabel>
+                                <TextField
+                                    id="message"
+                                    variant="outlined"
+                                    multiline
+                                    rows={3}
+                                    value={message}
+                                    onChange={(e) => setMessage(e.target.value)}
+                                />
+                            </FormControl>
                             <Button
                                 variant="contained"
                                 color="primary"
