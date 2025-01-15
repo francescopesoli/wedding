@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
     Box,
     Button,
@@ -33,12 +33,14 @@ const styles = {
         boxShadow: 24,
         p: 4,
         borderRadius: 2,
+        gap: 2,
     },
 };
 
 const DONATION_DETAILS = {
-    accountHolder: "Francesco e Beatrice",
-    iban: "IT60X0542811101000000123456",
+    accountHolders: ["Francesco Pesoli", "Beatrice Badei"],
+    iban: "IT50E0301503200000004360778",
+    causale: "Contributo per il sogno di Francesco e Beatrice",
 };
 
 export default function DonationSection() {
@@ -58,7 +60,7 @@ export default function DonationSection() {
     };
 
     return (
-        <Box sx={{ mt: 6, textAlign: 'center' }}>
+        <Box sx={{mt: 6, textAlign: 'center'}}>
             <Typography variant="h3" sx={styles.title}>
                 Per realizzare il nostro sogno
             </Typography>
@@ -77,44 +79,65 @@ export default function DonationSection() {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={styles.modalBox}>
-                    <Typography id="modal-modal-title" variant="h6" component="h2" sx={{ mb: 2 }}>
+                    <Typography id="modal-modal-title" variant="h6" component="h2" sx={{mb: 2}}>
                         Dettagli per il Bonifico
                     </Typography>
-                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                    <Box sx={{display: 'flex', flexDirection: 'column', gap: 2}}>
+                        {DONATION_DETAILS.accountHolders.map((holder, index) => (
+                            <Box key={index} sx={{display: 'flex', alignItems: 'center'}}>
+                                <TextField
+                                    fullWidth
+                                    label={`Intestatario ${index + 1}`}
+                                    value={holder}
+                                    InputProps={{readOnly: true}}
+                                />
+                                <IconButton
+                                    aria-label={`Copia Intestatario ${index + 1}`}
+                                    onClick={() => handleCopy(holder, `Intestatario ${index + 1}`)}
+                                    sx={{ml: 1}}
+                                >
+                                    <ContentCopyIcon/>
+                                </IconButton>
+                            </Box>
+                        ))}
+                        <Box sx={{display: 'flex', alignItems: 'center'}}>
+                            <TextField
+                                fullWidth
+                                label="IBAN"
+                                value={DONATION_DETAILS.iban}
+                                InputProps={{readOnly: true}}
+                            />
+                            <IconButton
+                                aria-label={`Copia IBAN`}
+                                onClick={() => handleCopy(DONATION_DETAILS.iban, "IBAN")}
+                                sx={{ml: 1}}
+                            >
+                                <ContentCopyIcon/>
+                            </IconButton>
+                        </Box>
+                    </Box>
+                    <Box sx={{display: 'flex', alignItems: 'center', mt: 2}}>
                         <TextField
                             fullWidth
-                            label="Intestatario"
-                            value={DONATION_DETAILS.accountHolder}
-                            InputProps={{ readOnly: true }}
+                            label="Causale"
+                            value={DONATION_DETAILS.causale}
+                            InputProps={{readOnly: true}}
                         />
                         <IconButton
-                            onClick={() => handleCopy(DONATION_DETAILS.accountHolder, "Intestatario")}
-                            sx={{ ml: 1 }}
+                            aria-label={`Copia Causale`}
+                            onClick={() => handleCopy(DONATION_DETAILS.causale, "Causale")}
+                            sx={{ml: 1}}
                         >
-                            <ContentCopyIcon />
+                            <ContentCopyIcon/>
                         </IconButton>
                     </Box>
-                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                        <TextField
-                            fullWidth
-                            label="IBAN"
-                            value={DONATION_DETAILS.iban}
-                            InputProps={{ readOnly: true }}
-                        />
-                        <IconButton
-                            onClick={() => handleCopy(DONATION_DETAILS.iban, "IBAN")}
-                            sx={{ ml: 1 }}
-                        >
-                            <ContentCopyIcon />
-                        </IconButton>
-                    </Box>
-                    <Typography sx={{ mt: 2 }}>
+                    <Typography sx={{mt: 2}}>
                         Grazie per il vostro supporto nel realizzare il nostro sogno!
                     </Typography>
                 </Box>
             </Modal>
             <Snackbar
-                anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+                anchorOrigin={{vertical: 'bottom', horizontal: 'center'}}
                 open={snackbarOpen}
                 autoHideDuration={3000}
                 onClose={handleSnackbarClose}
