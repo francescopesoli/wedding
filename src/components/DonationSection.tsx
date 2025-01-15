@@ -40,7 +40,7 @@ const styles = {
 const DONATION_DETAILS = {
     accountHolders: ["Francesco Pesoli", "Beatrice Badei"],
     iban: "IT50E0301503200000004360778",
-    causale: "Contributo per il sogno di Francesco e Beatrice",
+    causale: "Regalo di nozze Francesco e Beatrice",
 };
 
 export default function DonationSection() {
