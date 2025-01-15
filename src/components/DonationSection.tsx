@@ -122,6 +122,7 @@ export default function DonationSection() {
                             label="Causale"
                             value={DONATION_DETAILS.causale}
                             InputProps={{readOnly: true}}
+                            multiline
                         />
                         <IconButton
                             aria-label={`Copia Causale`}
