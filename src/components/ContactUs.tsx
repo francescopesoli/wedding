@@ -116,8 +116,8 @@ export default function ContactUs() {
                                 variant="outlined"
                                 fullWidth
                                 required
-                                value={guests}
-                                onChange={(e) => setGuests(Number(e.target.value))}
+                                value={guests === 0 ? '' : guests}
+                                onChange={(e) => setGuests(e.target.value === '' ? 0 : Number(e.target.value))}
                             />
                             <FormControl fullWidth required>
                                 <FormLabel htmlFor="message" sx={{ whiteSpace: 'normal' }}>
