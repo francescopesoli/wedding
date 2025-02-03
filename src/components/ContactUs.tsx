@@ -117,7 +117,12 @@ export default function ContactUs() {
                                 fullWidth
                                 required
                                 value={guests === 0 ? '' : guests}
-                                onChange={(e) => setGuests(e.target.value === '' ? 0 : Number(e.target.value))}
+                                onChange={(e) => {
+                                    const value = e.target.value;
+                                    if (/^\d*$/.test(value)) {
+                                        setGuests(value === '' ? 0 : Number(value));
+                                    }
+                                }}
                             />
                             <FormControl fullWidth required>
                                 <FormLabel htmlFor="message" sx={{ whiteSpace: 'normal' }}>
