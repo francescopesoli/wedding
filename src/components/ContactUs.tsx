@@ -105,6 +105,8 @@ export default function ContactUs() {
                                 required
                                 value={cellphone}
                                 onChange={(e) => setCellphone(e.target.value)}
+                                error={/\s/.test(cellphone)}
+                                helperText={/\s/.test(cellphone) ? "Il numero di telefono non deve contenere spazi" : ""}
                                 inputProps={{
                                     pattern: "[0-9]{10}",
                                     title: "Inserisci un numero di telefono valido (10 cifre)",
