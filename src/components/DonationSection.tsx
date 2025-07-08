@@ -38,8 +38,8 @@ const styles = {
 };
 
 const DONATION_DETAILS = {
-    accountHolders: ["Francesco Pesoli", "Beatrice Badei"],
-    iban: "IT50E0301503200000004360778",
+    accountHolders: ["", ""],
+    iban: "",
     causale: "Regalo di nozze",
 };
 
